@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +110,9 @@ public class GameView extends GridLayout {
             for (int x = 0; x < 4; x++) {
                 c = new Card(getContext());
                 c.setNum(0);
-                addView(c, cardWidth, cardHeight);
+                FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(cardWidth,cardHeight);
+                lp.setMargins(10, 10, 0, 0);
+                addView(c, lp);
                 cardsMap[x][y] = c;
             }
         }
